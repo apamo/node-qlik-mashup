@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nodeqlikmashup-service-ingress
+  annotations:
+    kubernetes.io/ingress.class: qlik-nginx
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /mashup(/|$)(.*)
+            backend:
+              serviceName: nodeqlikmashup-service
+              servicePort: 8075

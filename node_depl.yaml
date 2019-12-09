@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mashup-deployment
+  labels:
+    app: nodeqlikmashup
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodeqlikmashup
+  template:
+    metadata:
+      labels:
+        app: nodeqlikmashup
+    spec:
+      containers:
+      - name: nodeqlikmashup
+        image: apamo/node-qlik-mashup:latest
+        ports:
+        - containerPort: 8075
+
+        
